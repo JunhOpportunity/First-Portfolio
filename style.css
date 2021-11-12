@@ -15,6 +15,7 @@
     --color-orange: #feb546;
     --color-black: #000000;
     --color-dark-blue: #0069c0;
+    --color-light-blue: #6ec5ff;
 
     /* Font size */
     --font-large: 48px;
@@ -30,7 +31,11 @@
 
     /* Size */
     --size-border-radius: 4px;
+    /* Animation */
+    --animation-duration: 300ms;
 }
+
+
 
 /* Universal tags */
 * {
@@ -50,6 +55,13 @@ a {
 ul {
     list-style: none;
     padding-left: 0;
+}
+
+button {
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
 }
 
 /* Typography */
@@ -84,16 +96,16 @@ p {
 
 /* Navbar */
 #navbar {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--color-blue);
-    align-items: center;
+    display: flex; /* Nav 요소들을 양 옆으로 정렬하기 위해*/
+    justify-content: space-between; /* 요소들을 양 옆으로 정렬*/
+    background-color: var(--color-blue); 
+    align-items: center; /* 세로 기준 가운데 정렬 하기 위해 사용*/
     color: var(--color-white);
     padding: 16px;
 }
 
 .navbar__menu {
-    display: flex;;
+    display: flex; /* 오른쪽 메뉴들을 한 줄로 배열되도록 하기 위해*/
 }
 
 .nav__logo {
@@ -105,15 +117,110 @@ p {
     padding: 8px 12px;
     margin: 0 4px;
     cursor: pointer;
-    border-radius: var(--size-border-radius);
+    border-radius: var(--size-border-radius); /* 다른 메뉴들의 background를 둥글게 만들기 위해*/
 }
-.navbar__menu__item:hover {
+.navbar__menu__item:hover { /* 마우스 올라갔을 때*/
     background-color: var(--color-dark-blue);
-    
 }
 
 
 .navbar__menu__item.active {
     border: 1px solid var(--color-white);
-
 }
+
+/* Home */
+#home {
+    background: url("./imgs/BackGRoundIMG.png");
+    background-size: cover;
+    padding: 40px;
+    text-align: center;
+}
+
+.home__avatar {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 2px solid var(--color-light-whitewhite);
+}
+
+.home__title,
+.home__description {
+    color: var(--color-white);
+}
+
+.home__contact {
+    font-size: var(--font-regular);
+    font-weight: var(--weight-bold);
+    margin: 24px;
+    padding: 8px 12px;
+    color: var(--color-white);
+    border-radius: var(--size-border-radius);
+    border: 2px solid var(--color-white);
+}
+
+/* Section common */
+.section {
+    padding: 50px;
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
+}
+/* About */
+
+.about__majors {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+}
+
+.major__icon{
+    transition: all var(--animation-duration) ease;
+}
+.major__icon {
+    width: 170px;
+    height: 170px;
+    line-height: 170px;
+    font-size: 70px;
+    margin: auto;
+    color: var(--color-blue);
+    border: 1px solid var(--color-blue);
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+.major__icon:hover {
+    color: var(--color-dark-blue);
+    transform: rotate(-30deg) scale(1.1);
+}
+.major_title, .major__description {
+    color: var(--color-dark-grey);
+}
+
+.major__description {
+    font-size: var(--font-small);
+}
+
+/* 이 아래는 job 부분은 잘 모르겠다.(HTML도 마찬가지) */
+.job {
+    display: flex;
+    align-items: center;
+}
+
+.job__description {
+    margin: 0 16px;
+    text-align: left;
+}
+
+.job__name,
+.job__period {
+    color: var(--color-light-grey);
+}
+
+.job__name {
+    font-size: var(--font-small);
+}
+
+.job__period {
+    font-size: var(--font-micro);
+}
+
