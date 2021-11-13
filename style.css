@@ -56,6 +56,9 @@ ul {
     list-style: none;
     padding-left: 0;
 }
+li {
+    list-style: none;
+}
 
 button {
     background-color: transparent;
@@ -162,9 +165,14 @@ p {
 .section {
     padding: 50px;
     text-align: center;
+    
+    margin: auto;
+}
+.section__container {
     max-width: 1200px;
     margin: auto;
 }
+
 /* About */
 
 .about__majors {
@@ -224,3 +232,146 @@ p {
     font-size: var(--font-micro);
 }
 
+/* Skill */
+#skills {
+    background-color: var(--color-yellow);
+}
+
+.skillset {
+    display: flex;
+    color: var(--color-light-white);
+    background-color: var(--color-light-grey);
+    margin: 20px 0;
+}
+.skillset__title {
+    color: var(--color-white);
+}
+.skillset__left {
+    flex-basis: 60%; /* 새로운 것 */
+    background-color: var(--color-dark-grey);
+    padding: 20px 40px;
+}
+.skill {
+    margin-bottom: 32px;
+}
+.skill_description {
+    display: flex;
+    justify-content: space-between;
+}
+.skill_bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-grey);
+}
+.skill_value {
+    height: 3px;
+    background-color: var(--color-orange);
+}
+
+.skillset__right {
+    flex-basis: 40%;
+}
+
+.tools{
+    background-color: var(--color-grey);
+}
+
+.tools,
+.etc {
+    padding: 20px;
+}
+
+/* Work */
+.work__categories {
+    margin: 40px;
+}
+.category__btn {
+    border: 1px solid var(--color-dark-white);
+    border-radius: var(--size-border-radius);
+    font-size: var(--font-regular);
+    padding: 8px 48px;
+}
+
+.category__btn.active,
+.category__btn:hover {
+    background-color: var(--color-light-blue);
+    color: var(--color-white);
+}
+.category__btn.active .category__count,
+.category__btn:hover .category__count {
+    opacity: 1; /* 이 부분 신기하다! 마우스 갖다대니까 위에서 내려옴!! */
+    top: 0;
+}
+
+.category__count {
+    background-color: var(--color-orange);
+    border-radius: 50%;
+    color: var(--color-white);
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    display: inline-block;
+    position: relative;
+    top: -20px;
+    left: 4px;
+    opacity: 0; /* 새로운 거 */
+    transition: all var(--animation-duration);
+}
+
+.work__projects {
+    display: flex;
+    flex-wrap: wrap; /* 새로운 거 (창 작아지면 자동 줄바꿈)*/
+    justify-content: center; /* 중간으로 정렬*/
+
+}
+
+.project {
+    display: flex;
+    justify-content: center; /* 사진들 중앙으로 정렬 */
+    align-items: center;
+    position: relative;
+    width: 200px;
+    height: 250px;
+    margin: 2px;
+    background-color: var(--color-light-white);
+}
+
+.project__img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.project__description {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px); /* 아래서 위로 올라오는 효과 */
+    transition: all var(--animation-duration) ease-in;
+}
+.project:hover .project__description {
+    opacity: 0.8;
+    transform: translateY(0px);
+}
+.project__description h3 {
+    color: var(--color-white);
+}
+
+.project__description h3:after {
+    content: '';
+    position: relative;
+    left: 50%;
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin-left: -12px;
+    margin-top: 8px;
+    
+    background-color: var(--color-dark-white);
+}
