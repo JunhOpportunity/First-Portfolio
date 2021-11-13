@@ -16,6 +16,7 @@
     --color-black: #000000;
     --color-dark-blue: #0069c0;
     --color-light-blue: #6ec5ff;
+    --color-deep-dark-blue: #0d47a1;
 
     /* Font size */
     --font-large: 48px;
@@ -129,6 +130,15 @@ p {
 
 .navbar__menu__item.active {
     border: 1px solid var(--color-white);
+}
+
+.navbar__toggle-btn {
+    position: absolute;
+    right: 32px;
+    top: 24px;
+    font-size: 24px;
+    color: var(--color-white);
+    display: none;
 }
 
 /* Home */
@@ -374,4 +384,103 @@ p {
     margin-top: 8px;
     
     background-color: var(--color-dark-white);
+}
+
+/* Testimonial */
+#testimonials {
+    background-color: var(--color-light-white);
+
+}
+
+.testimonial {
+    justify-content: center;
+    display: flex;
+    margin: 40px;
+    margin: 32px 0;
+}
+
+.testimonial__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.testimonial__avatar:nth-child(odd) {
+    margin-right: 40px;
+}
+.testimonial__avatar:nth-child(even) {
+    margin-left: 40px;
+}
+.testimonial__speech--bubble {
+    padding: 18px;
+    background-color: var(--color-white);
+    border-radius: var(--size-border-radius);
+}
+
+.testimonial__speech--bubble a{
+    color: var(--color-light-blue);
+}
+
+/* Contact */
+#contact {
+    background-color: var(--color-blue);
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+    color: var(--color-white);
+}
+
+.contact__title {
+    margin: 32px 0;
+}
+
+.contact__links {
+    font-size: var(--font-large);
+    margin: 24px 0;
+
+}
+
+.contact__links i:hover {
+    transform: scale(1.1); /* 1.1   배 만큼 커짐*/
+    color: var(--color-deep-dark-blue);
+    transition: all var(--animation-duration) ease-in;
+}
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+    .navbar__toggle-btn {
+        display: block;
+    }
+
+    #navbar {
+        flex-direction: column; /* 세로 정렬 */
+        align-items: flex-start; /* 새로운 것 */
+    }
+
+    .navbar__menu {
+        flex-direction: column;
+        text-align: center; /* 이것만 했을 경우 가운데 정렬이 되지않아서*/
+        width:100%; /* 확인해보니 너비가 너무 좁아서 이거 추가로 작성*/
+        display: none;
+    }
+    .about__majors {
+        flex-direction: column;
+    }
+    .major {
+        margin-bottom: 30px;
+    }
+
+    .skillset {
+        flex-direction: column;
+    }
+
+    .project {
+        flex-grow: 1;
+    }
+
+    .testimonial__avatar {
+        width: 80px;
+        height: 80px;
+    }
 }
