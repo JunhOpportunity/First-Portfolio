@@ -127,19 +127,18 @@ p {
 }
 
 .navbar__menu__item {
+    border:1px solid transparent;
     padding: 8px 12px;
     margin: 0 4px;
     cursor: pointer;
     border-radius: var(--size-border-radius); /* 다른 메뉴들의 background를 둥글게 만들기 위해*/
 }
 .navbar__menu__item:hover { /* 마우스 올라갔을 때*/
-    background-color: var(--color-dark-blue);
-}
-
-
-.navbar__menu__item.active {
     border: 1px solid var(--color-white);
+    background-color: var(--color-dark-blue);
+    border-radius: var(--size-border-radius);
 }
+
 
 .navbar__toggle-btn {
     position: absolute;
@@ -312,12 +311,12 @@ p {
     padding: 8px 48px;
 }
 
-.category__btn.active,
+.category__btn .selected,
 .category__btn:hover {
     background-color: var(--color-light-blue);
     color: var(--color-white);
 }
-.category__btn.active .category__count,
+.category__btn.selected .category__count,
 .category__btn:hover .category__count {
     opacity: 1; /* 이 부분 신기하다! 마우스 갖다대니까 위에서 내려옴!! */
     top: 0;
@@ -388,7 +387,7 @@ p {
     transform: translateY(0px);
 }
 .project__description h3 {
-    color: var(--color-white);
+    color: var(--color-light-blue);
 }
 
 .project__description h3:after {
@@ -396,11 +395,10 @@ p {
     position: relative;
     left: 50%;
     display: block;
-    width: 25px;
+    width: 50px;
     height: 2px;
-    margin-left: -12px;
     margin-top: 8px;
-    
+    transform: translateX(-50%);
     background-color: var(--color-dark-white);
 }
 
@@ -498,11 +496,19 @@ p {
         align-items: flex-start; /* 새로운 것 */
     }
 
+    #navbar.navbar--dark {
+        padding: 16px;
+    }
+
     .navbar__menu {
         flex-direction: column;
         text-align: center; /* 이것만 했을 경우 가운데 정렬이 되지않아서*/
         width:100%; /* 확인해보니 너비가 너무 좁아서 이거 추가로 작성*/
         display: none;
+    }
+    .navbar__menu.open {
+        display: block;
+        background-color: var(--color-dark-blue);
     }
     .about__majors {
         flex-direction: column;

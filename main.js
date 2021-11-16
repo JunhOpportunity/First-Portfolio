@@ -12,7 +12,6 @@ document.addEventListener('scroll', () => {
     }
 });
 
-
 // Handle scrolling when tapping on the navbar menu
 const navbarMenu = document.querySelector('.navbar__menu');
 navbarMenu.addEventListener('click', (event) => {
@@ -21,8 +20,15 @@ navbarMenu.addEventListener('click', (event) => {
     if(link == null) {
         return;
     }
+    navbarMenu.classList.remove('open'); // 메뉴를 눌러서 이동하면, 바로 네비게이션 바 사라짐.
     scrollIntoView(link);
 });
+
+// Navbar toggle button for small screen
+const navBarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navBarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
+})
 
 // Handle click on "contact me" button on home
 const homeContactBtn = document.querySelector('.home__contact');
@@ -80,6 +86,15 @@ workBtnContainer.addEventListener('click', (e) => {
         projectContainer.classList.remove('anim-out');
     }, 300); // 300ms 이후에 다시 삭제
 });
+
+// Remove selection from the previous item and select the new one.
+
+const active = document.querySelector('.category__btn.selected');
+active.classList.remove('selected'); // selected 클래스 삭제
+const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode; // 클릭 된 것이 버튼이면 e.target 쓰고, 그런 경우가 아니면 e.target에 있는 버튼을 쓴다(?) 라는 말
+target.classList.add('selected'); // 클릭 된 부분의 클래스에 selected 클래스 추가
+
+
 
 function scrollIntoView(selector) { // 원하는 위치로 이동하는 함수
     const scrollTo = document.querySelector(selector);
