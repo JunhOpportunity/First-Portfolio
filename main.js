@@ -100,3 +100,15 @@ function scrollIntoView(selector) { // 원하는 위치로 이동하는 함수
     const scrollTo = document.querySelector(selector);
     scrollTo.scrollIntoView({behavior: 'smooth'});
 }
+
+const sectionIds = [
+    '#home',
+    '#about',
+    '#skills',
+    '#works',
+    '#testimonials',
+    '#contact',
+
+];
+const sections = sectionIds.map(id => document.querySelector(id));
+console.log(sections);
